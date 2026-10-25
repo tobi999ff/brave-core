@@ -81,6 +81,10 @@ public class MediaPreferences extends BravePreferenceFragment
         super.onActivityCreated(savedInstanceState);
 
         initFilterListAndroidHandler();
+            if (mFilterListAndroidHandler != null) {
+    mFilterListAndroidHandler.enableFilter(
+        FilterListConstants.HIDE_YOUTUBE_SHORTS_UUID, true);
+            }
 
         ChromeSwitchPreference enableWidevinePref = findPreference(PREF_WIDEVINE_ENABLED);
         if (enableWidevinePref != null) {
