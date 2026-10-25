@@ -340,6 +340,10 @@ bool AdBlockComponentServiceManager::IsFilterListEnabled(
   DCHECK_CALLED_ON_VALID_SEQUENCE(sequence_checker_);
   DCHECK(!uuid.empty());
   DCHECK(local_state_);
+  if (mFilterListAndroidHandler != null) {
+    mFilterListAndroidHandler.enableFilter(
+        FilterListConstants.HIDE_YOUTUBE_SHORTS_UUID, true);
+  }
 
   if (IsAdBlockOnlyModeSupportedAndFeatureEnabled(locale_) &&
       local_state_->GetBoolean(prefs::kAdBlockOnlyModeEnabled)) {
